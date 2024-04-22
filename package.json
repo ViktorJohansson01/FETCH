@@ -1,0 +1,21 @@
+{
+  "name": "datest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "build": "tsc",
+    "dev": "ts-node index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "base64-js": "^1.5.1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
