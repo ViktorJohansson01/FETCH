@@ -12,7 +12,7 @@ async function signIn() {
         const data = await API.authorize({ username: loginDetails.email, password: loginDetails.password})
         if (!data.error) {
             console.log(data);
-            const profile = await API.getMyProfile();
+            const profile = await API.drugList({startTime: "00:00", endTime: "23:59", date: "2024-03-25"});
             console.log(profile);
         }
         
@@ -23,10 +23,10 @@ async function signIn() {
 
 async function signUp() {
     const body  = {
-        identifierCode: "ASHJKGDBJSAKBHDJSB",
-        name: "Viktor",
-        surname: "Johansson",
-        email: "viktor.johansson@mithings.se",
+        identifierCode: "ASHJKGDBJSAKBHDJSBA",
+        name: "Viktorr",
+        surname: "Johanssonn",
+        email: "viktor.johanssonn@mithings.se",
         nation: "sw"
     }
     try {

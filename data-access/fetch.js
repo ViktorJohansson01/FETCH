@@ -28,7 +28,7 @@ export default function createFetch() {
                 method,
                 ...body && { body: JSON.stringify(body) }
             });
-
+            
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }

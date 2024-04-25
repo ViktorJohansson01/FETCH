@@ -74,9 +74,10 @@ const drugRoutes = {
   drugList: async ({ date, startTime, endTime }) => {
     headers.Authorization = bearerToken;
     const query = `date=${date}&startTime=${startTime}&endTime=${endTime}`;
-    const drugListResponse = await APIRoutes.drugList({ headers, query });
+    const drugListResponse = await APIRoutes.drugList({ headers, query, accountId });
     if (!drugListResponse.error) {
-      return "Drug list received";
+      console.log(drugListResponse);
+      return drugListResponse;
     }
     throw new Error("Failed to get drug list");
   },
@@ -85,7 +86,7 @@ const drugRoutes = {
     const query = `offset=${offset}&limit=${limit}&date=${date}&startTime=${startTime}&endTime=${endTime}`;
     const drugListNeededResponse = await APIRoutes.drugListNeeded({ headers, query });
     if (!drugListNeededResponse.error) {
-      return "Drug list needed received";
+      return drugListNeededResponse;
     }
     throw new Error("Failed to get drug list needed");
   },
@@ -94,7 +95,7 @@ const drugRoutes = {
     const query = `status=${activityStatus}&type=${activityType}`;
     const setActivityStatusResponse = await APIRoutes.setActivityStatus({ headers, query });
     if (!setActivityStatusResponse.error) {
-      return "Activity status set successfully";
+      return setActivityStatusResponse;
     }
     throw new Error("Failed to set activity status");
   },
@@ -103,7 +104,7 @@ const drugRoutes = {
     const query = `medicationIds=${medicationIds}&jsonFormat=true`;
     const drugInteractionResponse = await APIRoutes.drugInteraction({ headers, query });
     if (!drugInteractionResponse.error) {
-      return "Drug interaction received";
+      return drugInteractionResponse;
     }
     throw new Error("Failed to get drug interaction");
   },
@@ -120,7 +121,7 @@ const drugRoutes = {
     console.log(bearerToken);
     const setProfileResponse = await APIRoutes.setMyProfile({ headers, body });
     if (!setProfileResponse.error) {
-      return "My profile updated successfully";
+      return setProfileResponse;
     }
     throw new Error("Failed to update my profile");
   },
